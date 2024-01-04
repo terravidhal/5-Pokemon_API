@@ -16,9 +16,9 @@ export default class PokemonLists extends Component {
       try {
         const response = await fetch(request, { method: "GET" });
 
-        if (!response.status) {
+        /*if (!response.status) {
           throw new Error("Erreur de récupération des données");
-        }
+        } */
 
         const result = await response.json();
         this.setState({ pokemons: result.results });
