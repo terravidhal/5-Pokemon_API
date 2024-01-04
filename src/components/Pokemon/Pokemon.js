@@ -15,7 +15,7 @@ function Pokemon() {
       try {
         const response = await fetch(request, { method: "GET" });
 
-        if (!response.ok) {
+        if (!response.status) {
           throw new Error("Erreur de récupération des données");
         }
 
