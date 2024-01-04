@@ -1,1 +1,11 @@
-.Pokemon {}
+.Pokemon {
+    width: 30%;
+  margin: 0 auto;
+}
+
+ul {
+    padding: 0;
+}
+ul li{
+    list-style-type: none;
+}

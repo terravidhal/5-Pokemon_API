@@ -9,8 +9,8 @@ export default class PokemonLists extends Component {
   }
 
   async componentDidMount() {
-    // take Pokemons
-    const request = "https://pokeapi.co/api/v2/pokemon";
+    // take Pokemons Data
+    const request = "https://pokeapi.co/api/v2/pokemon?limit=807";
 
     const getPokemonsLists = async () => {
       try {
@@ -21,17 +21,15 @@ export default class PokemonLists extends Component {
         }
 
         const result = await response.json();
-
-        return result;
+        this.setState({ pokemons: result.results });
 
       } catch (error) {
         console.log("error message++", error.message);
-        return [];
+        this.setState({ pokemons: [] });
       }
     };
 
-    const pokemonsFinal = await getPokemonsLists();
-    this.setState({ pokemons: pokemonsFinal.results });
+    getPokemonsLists(); // call function
   }
 
   render() {
@@ -40,7 +38,7 @@ export default class PokemonLists extends Component {
         <h1>All pokemons</h1>
         <ul>
           {
-           this.state.pokemons.map((elt, index)=> <li key={index} className="pokemon">{elt.name}</li>)
+            this.state.pokemons.map((elt, index)=> <li key={index} className="pokemon">{ elt.name }</li>)
           }
         </ul>
       </div>
